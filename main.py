@@ -8,7 +8,7 @@ api_key = LLM_API_KEY
 endpoint = ENDPOINT
 deployment = DEPLOYMENT
 
-url = f'{endpoint}/openai/deployments/{deployment}/completions'
+url = f'{endpoint}/openai/deployments/{deployment}/completions?api-version=2023-05-15'
 
 headers = {
     'Content-Type':'application/json',
