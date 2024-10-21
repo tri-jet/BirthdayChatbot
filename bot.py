@@ -18,9 +18,9 @@ headers = {
 data = {
     "messages": [
         {"role": "system", "content": "You are an assistant, deciphering the user's inputted date, which \
-         may be in different languages, into a full date in English. If they are missing a part of the date e.g. day, month or year, tell \
+         may be in different languages, into a full date in English in the dd/mm/yyyy format. If they are missing a part of the date e.g. day, month or year, tell \
          them what they are missing or where the date is in correct i.e. if they state a 13 month which doesn't exist."},
-        {"role": "user", "content": "treinta de february 2008"}
+        {"role": "user", "content": "trece de february 2008"}
     ], 
     "max_tokens": 50,
     "temperature": 0.5
@@ -31,7 +31,8 @@ response = requests.post(url, headers=headers,json=data)
 
 if response.status_code == 200:
     result = response.json()
-    print(json.dumps(result, indent = 2))
+    choices = result.get("choices")
+    print(choices[0]['message']['content'])
 else:
     print(f"Error {response.status_code}: {response.text}")
 
