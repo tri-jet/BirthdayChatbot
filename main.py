@@ -17,8 +17,10 @@ headers = {
 
 data = {
     "messages": [
-        {"role": "system", "content": "You are an assistant, deciphering the user's inputted date, which may be in different languages, into English"},
-        {"role": "user", "content": "Uno de enero 2007"}
+        {"role": "system", "content": "You are an assistant, deciphering the user's inputted date, which \
+         may be in different languages, into a full date in English. If they are missing a part of the date e.g. day, month or year, tell \
+         them what they are missing or where the date is in correct i.e. if they state a 13 month which doesn't exist."},
+        {"role": "user", "content": "treinta de february 2008"}
     ], 
     "max_tokens": 50,
     "temperature": 0.5
