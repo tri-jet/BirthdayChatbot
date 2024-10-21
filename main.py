@@ -1,38 +1,20 @@
-import json
 
-import requests
+error_count = 0
 
-from config import LLM_API_KEY, ENDPOINT, DEPLOYMENT
+user_input = input("Please input your birthday to reveal your secret letter.")
 
-api_key = LLM_API_KEY
-endpoint = ENDPOINT
-deployment = DEPLOYMENT
-
-url = f'{endpoint}openai/deployments/{deployment}/chat/completions?api-version=2023-05-15'
-
-headers = {
-    'Content-Type':'application/json',
-    'api-key':api_key
-}
-
-data = {
-    "messages": [
-        {"role": "system", "content": "You are an assistant, deciphering the user's inputted date, which \
-         may be in different languages, into a full date in English. If they are missing a part of the date e.g. day, month or year, tell \
-         them what they are missing or where the date is in correct i.e. if they state a 13 month which doesn't exist."},
-        {"role": "user", "content": "treinta de february 2008"}
-    ], 
-    "max_tokens": 50,
-    "temperature": 0.5
-}
+while(error_count < 3):
+    user_input = input("Please input your birthday to reveal your secret letter.")
+    
+    # send data to bot
+    # if correct format:
+        # check if matches birthday.txt
+    
+    # else: error_count += 1, 
 
 
-response = requests.post(url, headers=headers,json=data)
+## Pass user input to bot + determine how bot output received.
 
-if response.status_code == 200:
-    result = response.json()
-    print(json.dumps(result, indent = 2))
-else:
-    print(f"Error {response.status_code}: {response.text}")
-
-
+# - set format: 
+# if correct date format -> YES: <date>
+# if incorrect date/format wrong -> NO: <feedback>
