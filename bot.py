@@ -1,5 +1,3 @@
-import json
-
 import requests
 
 from config import LLM_API_KEY, ENDPOINT, DEPLOYMENT
@@ -19,8 +17,9 @@ data = {
     "messages": [
         {"role": "system", "content": "You are an assistant, deciphering the user's inputted date, which \
          may be in different languages, into a full date in English in the dd/mm/yyyy format. If they are missing a part of the date e.g. day, month or year, tell \
-         them what they are missing or where the date is in correct i.e. if they state a 13 month which doesn't exist."},
-        {"role": "user", "content": "trece de february 2008"}
+         them what they are missing or where the date is in correct i.e. if they state a 13 month which doesn't exist. Also if they enter a date in the future, give \
+         them feedback that that date hasn't happened yet so it can't be their birthday."},
+        {"role": "user", "content": "trece de february 2024"}
     ], 
     "max_tokens": 50,
     "temperature": 0.5
@@ -35,5 +34,3 @@ if response.status_code == 200:
     print(choices[0]['message']['content'])
 else:
     print(f"Error {response.status_code}: {response.text}")
-
-
