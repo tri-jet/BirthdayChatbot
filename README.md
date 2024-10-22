@@ -11,3 +11,13 @@ A prototype chatbot application using the OpenAI API that reveals a secret lette
 
 5. Run the main python script using `python main.py`, enter the right birthday and you'll see the secret message.
 
+### How the Bot Script Works
+The bot script deciphers user input to parse a valid date. 
+The bot uses the response tags to indicate whether it was able to parse a valid date from the input.
+- Y (Yes) - valid date, proceed to check if date matches birthday.txt 
+- N (No) - invalid date, provide feedback
+- A(Ambiguous) - date can be interpreted differently in different formats, e.g. 5/6/2000 could be 5th June or 6th May.
+
+## Testing
+To run the tests, use the command `python -m unittest tests\test_bot.py` 
+
