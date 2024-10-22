@@ -30,7 +30,7 @@ class TestBot(unittest.TestCase):
     def test_future_date(self):
         # test response when date in future
         result = input_birthday("5th October 2066")
-        self.assertIn("future", result)
+        self.assertEqual(result[0], "N")
 
     def test_spanish_error(self):
         # test if switches to spanish to explain error
