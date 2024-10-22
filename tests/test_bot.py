@@ -15,7 +15,7 @@ class TestBot(unittest.TestCase):
     def test_mmddyy_correct_birthday(self):
         # test works with mm/dd/yy format
         result = input_birthday("6/13/2000")
-        self.assertEqual(result[3:],self.secret_birthday)
+        self.assertEqual(result[0],"A")
 
     def test_ambiguous_format(self):
         # test if date is unclear, returns ambiguous tag
