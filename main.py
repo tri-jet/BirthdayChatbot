@@ -2,11 +2,11 @@ from bot import input_birthday
 error_count = 0
 
 # open files to read correct birthday and secret
-f = open('birthday.txt','r')
+f = open('data/birthday.txt','r')
 secret_bday = f.readline()
 f.close()
 
-f = open('secret.txt','r')
+f = open('data/secret.txt','r')
 secret = f.readline()
 f.close()
 
