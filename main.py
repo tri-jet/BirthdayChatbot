@@ -10,6 +10,7 @@ f = open('secret.txt','r')
 secret = f.readline()
 f.close()
 
+print("You only get 3 attempts to enter your birthday")
 while(error_count < 3):
     user_input = input("Please input your birthday to reveal your secret letter.")
     bot_result = input_birthday(user_input=user_input)
@@ -22,10 +23,17 @@ while(error_count < 3):
             break
         else: 
             print("incorrect birthday, no secret for you")
+    
+    #ambiguous date
+    elif bot_result[0] == 'A':
+        bot_result = bot_result[3:]
+        print(bot_result)
             
     # incorrect format
     elif bot_result[0] == 'N':
         print(bot_result[3:]) 
+
+    # unknown output from bot
     else:
         print("unknown bot output" + bot_result)
     
