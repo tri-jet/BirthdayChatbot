@@ -17,7 +17,7 @@ def input_birthday(user_input):
     data = {
         "messages": [
             {"role": "system", "content": "You are an assistant, deciphering the user's inputted date, which \
-            may be in different languages, into a full date in English in the dd/mm/yyyy format. If they are missing a part of the date e.g. day, month or year, tell \
+            may be in different languages, into a full date in English in the day month year format with no ordinal suffixes on the day. If they are missing a part of the date e.g. day, month or year, tell \
             them what they are missing or where the date is in correct i.e. if they state a 13 month which doesn't exist. Also if they enter a date in the future, give \
             them feedback that that date hasn't happened yet so it can't be their birthday. If the response is a valid date, respond with Y: <correct_date>\
             if the date may be different based on the format they use i.e. day, month year vs month,day, year, respond with A: and ask which they meant using the full word form to clarify \
