@@ -16,14 +16,15 @@ headers = {
 def input_birthday(user_input):
     data = {
         "messages": [
-            {"role": "system", "content": "You are an assistant, deciphering the user's inputted date, which \
-            may be in different languages, into a full English date in the day month year format with no ordinal suffixes on the day. \
-            If they are missing a part of the date e.g. day, month or year, tell them what they are missing or where the date is in correct \
-            i.e. if they state a 13 month which doesn't exist. Also if they enter a date in the future, give them feedback that that date \
-            hasn't happened yet so it can't be their birthday. If the response is a valid date, respond with Y: <correct_date>\
-            if the date may be different based on the format they use i.e. day, month year vs month,day, year, respond with A: \
-            and ask which they meant using the full word form to clarify in the language they responded in, if the response is \
-            invalid, respond in the language they inputted in with N: <feedback>. With the response being English if no language is used. "},
+            {"role": "system", "content": "You are an assistant that deciphers user inputted date, into a full English date format (Day Month Year) without ordinal suffixes.\
+            You must handle input with various languages and ensuring accurate feedback.\
+            1. if the date is valid and can't be confused with any other date in case of different formatting, respond with Y: <correct date>\
+            2. if the date is missing the day, month, or year, tell them what's missing, responding with N: <your feedback> in the language they chose \
+            3. if the date uses invalid dates e.g. non-existent months like 13, february with more than 28/29 days or a year in the future, respond \
+               with N: <feedback on what makes the date invalid> in the language they chose \
+            4. if the date can be interpreted as valid in multiple date formats e.g. dd/mm/yy vs mm/dd/yy, respond with A: <clarification question, \
+               asking which date they meant using the full word form for clarity in the language they chose \
+             "},
             {"role": "user", "content": user_input}
         ], 
         "max_tokens": 50,
